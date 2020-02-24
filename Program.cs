@@ -324,7 +324,20 @@ namespace Assignment2_CT_Spring2020
         {
             try
             {
-                //Write your code here;
+                Dictionary<char, int> dict = new Dictionary<char, int>();
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    if (dict.ContainsKey(arr[i]))
+                    {
+                        if (i - dict[arr[i]] <= k)
+                        {
+                            return true;
+                        }
+                    }
+                    else
+                        dict[arr[i]] = i;
+                }
+                return false;
             }
             catch (Exception)
             {
@@ -376,8 +389,38 @@ namespace Assignment2_CT_Spring2020
         {
             try
             {
-                //Write Your Code Here
-            }
+                
+                int same = 0;
+                
+                for (int i = 0; i < userDict.Length; i++)
+                {
+                    same = 0;
+                    for (int j = 0; j < userDict[i].Length; j++)
+                    {
+                        
+                        if (userDict[i][j] == keyword[j])
+                        {
+                            same = same + 1;
+                            
+                        }
+
+                    }
+                    if (same == keyword.Length - 1)
+                        return true;
+
+                }
+
+                return false;
+
+            
+            
+    
+
+
+
+
+    
+    }
             catch (Exception)
             {
                 throw;
